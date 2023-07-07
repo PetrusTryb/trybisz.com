@@ -1,6 +1,5 @@
 {
-  "name": "portfolio",
-  "type": "module",
+  "name": "pt-portfolio",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
@@ -10,6 +9,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.7.1"
+    "@astrojs/markdown-remark": "^2.2.1",
+    "@astrojs/netlify": "^2.3.0",
+    "@astrojs/svelte": "^2.1.1",
+    "@fontsource/jetbrains-mono": "^4.5.12",
+    "@fontsource/roboto": "^4.5.8",
+    "astro": "^2.7.4",
+    "astro-i18next": "^1.0.0-beta.21",
+    "marked": "^5.1.1",
+    "nanostores": "^0.9.3",
+    "open-props": "^1.5.8",
+    "rehype-autolink-headings": "^6.1.1",
+    "sharp": "^0.32.1",
+    "svelte": "^3.59.1"
+  },
+  "devDependencies": {
+    "@types/marked": "^5.0.0"
   }
 }

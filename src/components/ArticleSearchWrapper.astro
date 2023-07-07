@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import ArticleSearch from "./ArticleSearch.svelte";
+import i18next from "i18next";
+export const prerender = true;
+
+const articles = (await getCollection("projects")).sort(
+  (a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf()
+);
+const lang = i18next.language;
+---
+
+<ArticleSearch client:only="svelte" {articles} {lang}/>

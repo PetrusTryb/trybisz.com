@@ -1,0 +1,30 @@
+---
+const { title, description, ogImage = "" } = Astro.props;
+
+const imageUrl = ogImage ? Astro.url.origin + ogImage : Astro.url.origin + "/cover.jpg";
+---
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/logo.png" type="image/png" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="author" content="Piotr Trybisz" />
+  <meta name="description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url.origin} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={imageUrl} />
+  <script src="/sw.js" is:inline></script>
+  <script is:inline>
+    const storedTheme = localStorage.getItem("theme");
+    document.documentElement.className = storedTheme;
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js");
+      });
+    }
+  </script>
+</head>

@@ -1,0 +1,40 @@
+---
+import i18next, {changeLanguage} from "i18next";
+import { getEntryBySlug, getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import PageLayout from "../../layouts/PageLayout.astro";
+import astroI18nextConfig from "../../../astro-i18next.config";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+export async function getStaticPaths() {
+  return astroI18nextConfig.locales.map((entry) => ({
+    params: { lang: entry }
+  }));
+}
+
+changeLanguage(Astro.params.lang);
+
+const about = await getEntryBySlug("about", i18next.language);
+const { Content, headings } = await about.render();
+const projects = (await getCollection("projects")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
+---
+
+<PageLayout title="Piotr Trybisz" description="Talk is cheap, show me the code..." headings={headings}>
+  <Content />
+  <div class="article-grid">
+    {
+      projects.filter((project)=>project.slug.split("/")[1] == i18next.language && project.data.published).map((project) => (
+        <ProjectCard project={project} />
+      ))
+    }
+  </div>
+</PageLayout>
+
+<style>
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    grid-template-rows: auto;
+    gap: var(--size-7);
+  }
+</style>

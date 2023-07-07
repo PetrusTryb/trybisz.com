@@ -1,0 +1,22 @@
+---
+import { changeLanguage } from "i18next";
+import ArticleLayout from "../../../layouts/ArticleLayout.astro";
+import { marked } from 'marked';
+import {rehype} from 'rehype'
+import {rehypeHeadingIds} from "@astrojs/markdown-remark";
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+export const prerender = false;
+
+changeLanguage(Astro.params.lang);
+const slug = `${Astro.params.slug}/${Astro.params.lang}`;
+const entry = await Astro.locals.getProject(slug);
+const content = marked.parse(entry.body,{mangle:false});
+const withHeaders = rehype().use(rehypeHeadingIds).use(rehypeAutolinkHeadings,{
+    behavior: "wrap",
+      properties: {
+        class: "heading-linker"
+      }
+}).processSync(content).toString();
+---
+
+<ArticleLayout id={entry.id} slug={entry.slug} projectData={entry.data} set:html={withHeaders}/>

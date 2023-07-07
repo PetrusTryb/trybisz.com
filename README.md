@@ -1,54 +1,23 @@
-# Astro Starter Kit: Basics
+# Portfolio
 
-```
-npm create astro@latest -- --template basics
-```
+Moje nowe portfolio, oparte na framerowku [Astro](https://astro.build/).
+To już moje trzecie podejście.
+Tym razem postanowiłem postawić nie tyle na prostotę edycji, jak to miało miejsce w poprzednim projekcie - [PortCMS](https://github.com/PetrusTryb/portcms), tylko na automatyzację - czyli brak konieczności (a właściwie minimalizację) ręcznych edycji.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Jak to działa?
+Wszystkie treści pojawiające się na stronie są przechowywane w plikach Markdown w folderze `src/content`.\
+Folder `src/content/about` zawiera jedynie treści strony głównej - takie jak umiejętności, doświadczenie, wykształcenie, itp. - te treści muszą być edytowane ręcznie.\
+W folderze `src/content/projects` znajdują się pliki z danymi projektów. Mogą one być dodawane zarówno ręcznie, jak i pobierane automatycznie z GitHuba.
+Przy każdym projekcie można podać link do repozytorium, a wtedy dane będą pobierane automatycznie.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+<hr/>
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+My new portfolio, based on the [Astro](https://astro.build/) framework.
+This is my third approach.
+This time I decided to focus not so much on the simplicity of editing, as it was in the previous project - [PortCMS](https://github.com/PetrusTryb/portcms), but on automation - i.e. no need (or rather minimization) of manual editing.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## How it's working?
+All content appearing on the page is stored in Markdown files in the `src/content` folder.\
+The `src/content/about` folder only contains homepage content - such as skills, experience, education, etc. - this content must be edited manually.\
+In the `src/content/projects` folder there are project data files. They can be added manually or downloaded automatically from GitHub.
+For each project, you can provide a link to the repository, and then the data will be downloaded automatically.

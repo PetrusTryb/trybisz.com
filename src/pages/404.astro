@@ -1,0 +1,13 @@
+---
+import { changeLanguage } from "i18next";
+import PageLayout from "../layouts/PageLayout.astro";
+
+changeLanguage("en");
+
+const description = "Oops! This page cannot be displayed right now...";
+---
+
+<PageLayout title="404 - Page not found">
+  <p style="text-shadow: lightgrey 1px 1px">{description}</p>
+  <a href="/" style="text-decoration-color: yellow">Go back to the homepage</a>
+</PageLayout>

@@ -1,0 +1,55 @@
+---
+const currentDateYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+    <ul>
+      <li>
+        <a href="mailto:ptrybisz@gmail.com">Contact</a>
+      </li>
+      <li>
+        <a href="https://github.com/PetrusTryb">GitHub</a>
+      </li>
+    </ul>
+    <p>
+      <small class="copyright">Copyright &copy; {currentDateYear} Piotr Trybisz<br>
+        <a href="https://aurora.thilohohlt.com/" target="_blank" rel="noreferrer noopener">
+          This front-end uses Astro aurora theme
+        </a><br/>
+        Reached bottom of page. <a href="#">Back to top</a>
+      </small>
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding-block: var(--size-3);
+    margin-block-start: var(--size-9);
+    background-image: linear-gradient(
+      0deg,
+      var(--tertiary-background-color) 0%,
+      var(--background-color) 100%
+    );
+    text-align: left;
+  }
+
+  .container {
+    display: grid;
+    place-items: center;
+  }
+
+  ul {
+    padding-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: var(--size-3);
+  }
+
+  .copyright {
+    font-size: var(--size-1);
+    color: var(--text-color);
+  }
+</style>
