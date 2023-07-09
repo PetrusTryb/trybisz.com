@@ -2,12 +2,15 @@
 import ArticleSearchWrapper from "../components/ArticleSearchWrapper.astro";
 import ThemeToggle from "../components/ThemeToggle.svelte";
 import LanguageToggle from "./LanguageToggle.svelte";
+import {Image} from "astro:assets";
+import i18next from "i18next";
+const localizedStartPage = "/"+i18next.language;
 ---
 
 <nav>
   <div class="container">
-    <a href="/">
-      <img src="/logo.png" width="32" height="32" alt="Logo" />
+    <a href={localizedStartPage}>
+        <Image src="/src/assets/logo.png" alt="Logo" width="32" height="32" />
     </a>
     <slot />
     <ArticleSearchWrapper />

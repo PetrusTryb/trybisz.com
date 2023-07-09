@@ -1,10 +1,11 @@
 ---
 import {Image} from "astro:assets";
 import Tags from "./Tags.svelte";
+import ProjectLinks from "./ProjectLinks.svelte";
 const {project} = Astro.props;
 ---
+<a href={"/" + project["slug"].split("/")[1] + "/projects/" + project["slug"].split("/")[0]}>
 <article>
-    <a href={"/" + project["slug"].split("/")[1] + "/projects/" + project["slug"].split("/")[0]}>
         <div class="card-header">
             {!project.data["cover"] ?
                     <div>
@@ -26,9 +27,11 @@ const {project} = Astro.props;
                 </h2>
                 <p>{project.data["shortDescription"]}</p>
             </div>
+            <div class="card-footer">
+            <ProjectLinks client:only="svelte" linksType="buttons" projectData={project.data}/>
+            </div>
         </div>
-    </a>
-</article>
+</article></a>
 <style>
     article {
         border: var(--standard-border);
@@ -45,7 +48,7 @@ const {project} = Astro.props;
         transform: translate3d(0, -2px, 0);
     }
 
-    article > a {
+    a {
         text-decoration: none;
     }
 
@@ -56,5 +59,10 @@ const {project} = Astro.props;
 
     article > .card-content {
         padding: var(--size-3);
+    }
+
+    article > .card-footer {
+        padding: var(--size-3);
+        border-block-start: var(--standard-border);
     }
 </style>
