@@ -10,15 +10,15 @@
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^2.2.1",
-    "@astrojs/netlify": "^2.3.0",
     "@astrojs/svelte": "^2.1.1",
+    "@astrojs/vercel": "^3.7.0",
     "@fontsource/jetbrains-mono": "^4.5.12",
     "@fontsource/roboto": "^4.5.8",
     "astro": "^2.8.0",
     "astro-i18next": "^1.0.0-beta.21",
     "dotenv": "^16.3.1",
     "marked": "^5.1.1",
-    "open-props": "^1.5.8",
+    "open-props": "^1.5.10",
     "rehype-autolink-headings": "^6.1.1",
     "sharp": "^0.32.1",
     "svelte": "^3.59.1"

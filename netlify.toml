@@ -1,8 +1,6 @@
 [build]
     command = "npm run build"
     publish = "dist"
-[functions]
-    external_node_modules = ["astro", "prismjs", "i18next-fs-backend", "tsm", "@proload/core"]
 [[redirects]]
   from = "/"
   to = "/pl"
@@ -13,3 +11,5 @@
   to = "/en"
   status = 302
   conditions = {Language = ["en"]}
+[dev]
+    targetPort = 8000

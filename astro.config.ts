@@ -3,14 +3,15 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import astroI18next from "astro-i18next";
 import svelte from "@astrojs/svelte";
-import netlify from "@astrojs/netlify";
+import vercelServerless from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://trybisz.com",
   compressHTML: true,
   experimental: {
-    assets: true
+    assets: true,
+    redirects: true,
   },
   scopedStyleStrategy: "class",
   markdown: {
@@ -29,5 +30,5 @@ export default defineConfig({
     port: 8000
   },
   output: "server",
-  adapter: netlify()
+  adapter: vercelServerless()
 });
