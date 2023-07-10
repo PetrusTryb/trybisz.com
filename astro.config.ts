@@ -3,8 +3,7 @@ import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import astroI18next from "astro-i18next";
 import svelte from "@astrojs/svelte";
-
-import netlify from "@astrojs/netlify/functions";
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,6 +28,6 @@ export default defineConfig({
   server: {
     port: 8000
   },
-  output: "hybrid",
+  output: "server",
   adapter: netlify()
 });
