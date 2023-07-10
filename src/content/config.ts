@@ -13,9 +13,9 @@ export const collections = {
       shortDescription: z.string().max(1000).optional(), // If repo provided, this can be fetched automatically
       tags: z.array(z.string()).max(120).optional(), // Read in the file if not GitHub URL provided
       extendedData: z.object({
-        homepage: z.string(),
-        stars: z.number(),
-        forks: z.number(),
+        homepage: z.string().optional(),
+        stars: z.number().optional(),
+        forks: z.number().optional(),
       }).optional() // Used only if GitHub URL provided, filled in automatically by middleware
     })
   }),
