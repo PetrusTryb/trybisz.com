@@ -14,7 +14,7 @@
     let isHomepageLive;
     githubUrl = projectData?.extendedData ? projectData?.url : null;
     homepageUrl = projectData?.extendedData?.homepage || (!githubUrl ? projectData?.url : null);
-    isHomepageLive = homepageUrl ? isLive(homepageUrl) : null;
+    isHomepageLive = (homepageUrl&&linksType==="text") ? isLive(homepageUrl) : null;
 </script>
 {#if linksType==="text"}
 {#if githubUrl}

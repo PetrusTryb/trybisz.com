@@ -1,18 +1,16 @@
 ---
 import i18next, {changeLanguage} from "i18next";
-import { getEntryBySlug, getCollection } from "astro:content";
-import PageLayout from "../../layouts/PageLayout.astro";
-import ProjectCard from "../../components/ProjectCard.astro";
-import {getProject} from "../../content/config";
+import { getCollection } from "astro:content";
+import PageLayout from "../../../../layouts/PageLayout.astro";
+import ProjectCard from "../../../../components/ProjectCard.astro";
+import {getProject} from "../../../../content/config";
 export const prerender = false;
-
+const tag = Astro.params.tag;
 changeLanguage(Astro.params.lang);
 
-const about = await getEntryBySlug("about", i18next.language);
-const { Content, headings } = await about.render();
 let processedProjects = [];
 const projects = (await getCollection("projects"))
-    .filter((project)=>project.slug.split("/")[1] == i18next.language && project.data.published);
+    .filter((project)=>project.slug.split("/")[1] == i18next.language);
 await Promise.all(projects.map(async (project) => {
   if(!project.data.extendedData) {
     console.log("Cache miss for project", project.slug);
@@ -23,11 +21,15 @@ await Promise.all(projects.map(async (project) => {
     processedProjects.push(project);
   }
 }));
-processedProjects = processedProjects.sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
+processedProjects = processedProjects
+    .filter((project) => project.data.tags.includes(tag))
+    .sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 ---
 
-<PageLayout title="Piotr Trybisz" description="Talk is cheap, show me the code..." headings={headings}>
-  <Content />
+<PageLayout title={'#'+tag} description={"Projects tagged: #"+tag}>
+    <p hidden={processedProjects.length>0}>
+        No projects found with tag #{tag}
+    </p>
   <div class="article-grid">
     {
       processedProjects.map((project) => (
