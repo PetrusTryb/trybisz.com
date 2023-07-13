@@ -45,3 +45,4 @@ I am an active member of the IT Commission of Student Self - Government of the G
 - IT Commission of Student Self - Government of the Gdańsk University of Technology (2021 - currently)
 
 ## Projects
+*Notice: Most of my university projects are not listed here, if you want to see them, click [here](/en/projects/by-tag/university-project).*

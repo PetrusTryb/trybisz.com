@@ -3,4 +3,5 @@ title: AiSD3 - Gra GIPF
 publicationDate: 2023-06-11
 published: false
 url: https://github.com/PetrusTryb/AiSD3
+cover: /src/assets/projects/AiSD3.png
 ---

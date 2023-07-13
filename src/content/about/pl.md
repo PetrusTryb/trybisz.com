@@ -44,3 +44,4 @@ Jestem aktywnym członkiem Komisji Rozwoju Struktury Informatycznej Samorządu S
 - Komisja Rozwoju Struktury Informatycznej Samorządu Studentów Politechniki Gdańskiej (2022 - obecnie)
 
 ## Projekty
+*Uwaga: Większość moich projektów na studia nie jest tu wymieniona, jeśli chcesz je zobaczyć, kliknij [tutaj](/pl/projects/by-tag/university-project).*

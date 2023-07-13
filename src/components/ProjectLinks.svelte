@@ -19,9 +19,7 @@
 {#if linksType==="text"}
 {#if githubUrl}
     <div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-  <path fill-rule="evenodd" d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z" clip-rule="evenodd" />
-        </svg><a href={githubUrl} target="_blank" rel="noopener noreferrer">{githubUrl}</a>
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer"><img src="/GitHub-Mark-Light-32px.png" alt="GitHub">{githubUrl.replace("https://github.com","")}</a>
         {#if projectData.extendedData.stars!==undefined && projectData.extendedData.forks!==undefined}
             <div class="badge" title="Stars">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -60,9 +58,7 @@
     {:else}
     <div class="button-links">
     {#if githubUrl}
-<a href={githubUrl} target="_blank" rel="noopener noreferrer"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-  <path fill-rule="evenodd" d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z" clip-rule="evenodd" />
-        </svg>GitHub</button></a>
+<a href={githubUrl} target="_blank" rel="noopener noreferrer"><button><img src="/GitHub-Mark-Light-32px.png" alt="GitHub">GitHub</button></a>
 {/if}
 {#if homepageUrl}
 <a href={homepageUrl} target="_blank" rel="noopener noreferrer"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -107,10 +103,11 @@
     .button-links > a:nth-child(2){
         margin-left: 3px;
     }
-    svg{
-        width: 20px;
-        height: 20px;
+    svg, img{
+        width: 16px;
+        height: 16px;
         margin-right: 3px;
+        display: inline;
     }
     .badge>svg{
         width: 10px;

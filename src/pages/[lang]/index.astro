@@ -16,7 +16,7 @@ const projects = (await getCollection("projects"))
 await Promise.all(projects.map(async (project) => {
   if(!project.data.extendedData) {
     console.log("Cache miss for project", project.slug);
-    processedProjects.push(await getProject(project.slug));
+    processedProjects.push(await getProject(project.slug, false));
   }
   else {
     console.log("Cache hit for project", project.slug);
@@ -27,6 +27,7 @@ processedProjects = processedProjects.sort((a, b) => b.data.publicationDate.valu
 ---
 
 <PageLayout title="Piotr Trybisz" description="Talk is cheap, show me the code..." headings={headings}>
+  <i slot="header">Talk is cheap, show me the code</i>
   <Content />
   <div class="article-grid">
     {

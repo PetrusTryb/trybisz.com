@@ -14,7 +14,7 @@ const projects = (await getCollection("projects"))
 await Promise.all(projects.map(async (project) => {
   if(!project.data.extendedData) {
     console.log("Cache miss for project", project.slug);
-    processedProjects.push(await getProject(project.slug));
+    processedProjects.push(await getProject(project.slug, false));
   }
   else {
     console.log("Cache hit for project", project.slug);
@@ -27,7 +27,7 @@ processedProjects = processedProjects
 ---
 
 <PageLayout title={'#'+tag} description={"Projects tagged: #"+tag}>
-    <p hidden={processedProjects.length>0}>
+    <p hidden={processedProjects.length>0} style="color: red;">
         No projects found with tag #{tag}
     </p>
   <div class="article-grid">

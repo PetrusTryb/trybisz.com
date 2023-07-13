@@ -1,6 +1,6 @@
 ---
 import TableOfContents from "../components/TableOfContents.svelte";
-const { title, description, ogImage, headings } = Astro.props;
+const { title, description, ogImage, headings, image } = Astro.props;
 
 import "open-props/style";
 import "../styles/global.css";
@@ -21,7 +21,7 @@ import Footer from "../components/Footer.astro";
       {headings &&
       <TableOfContents client:only="svelte" headings={headings}/>}
     </Nav>
-    <Header title={title}>
+    <Header title={title} image={image}>
       <slot slot="before-title" name="header-before" />
       <slot name="header" />
     </Header>

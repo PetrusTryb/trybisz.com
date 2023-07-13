@@ -1,7 +1,6 @@
 ---
-const { title, description, ogImage = "" } = Astro.props;
-
-const imageUrl = ogImage ? Astro.url.origin + ogImage : Astro.url.origin + "/cover.jpg";
+const { title, description, ogImage } = Astro.props;
+const imageUrl = ogImage ? Astro.url.origin + "/_image?href=" + ogImage.src : Astro.url.origin + "/cover.jpg";
 ---
 
 <head>

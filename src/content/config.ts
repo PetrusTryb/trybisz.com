@@ -22,7 +22,7 @@ export const collections = {
   }),
 };
 
-export async function getProject(slug: string) {
+export async function getProject(slug: string, withReadme: boolean=true) {
     let project = await getEntryBySlug("projects", slug);
     console.log("getProject", slug, project != null);
     if (project?.data.url?.match(/^https:\/\/github.com\/\w+\/[\w-_.]+$/)) {
@@ -47,10 +47,11 @@ export async function getProject(slug: string) {
             forks: data.forks,
             homepage: data.homepage
         }
-        if (project?.body.length > 0) return project;
+        if (project?.body.length > 0 || !withReadme) return project;
         const readme = await fetch(`https://raw.githubusercontent.com/${data.full_name}/${data.default_branch}/README.md`);
         if (!readme.ok) {
             console.log("GitHub project README fetch failed", readme.status);
+            project.body = "<p style='color:red;'>Failed to fetch README.md</p>";
             return project;
         }
         console.log("GitHub project README fetch OK");
