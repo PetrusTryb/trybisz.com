@@ -1,6 +1,11 @@
 ---
 import astroI18nextConfig from "../../astro-i18next.config";
 const allowedLocales = astroI18nextConfig.locales.join(';');
+const preferredLang = Astro.request.headers.get('accept-language');
+if(preferredLang.includes('pl')){
+        return Astro.redirect('/pl');
+}
+return Astro.redirect('/en');
 ---
 {
     allowedLocales.split(';').map((locale)=>

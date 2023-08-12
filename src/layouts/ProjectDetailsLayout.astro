@@ -2,14 +2,14 @@
 import PageLayout from "./PageLayout.astro";
 import LocalizedDates from "../components/LocalizedDates.svelte";
 import ProjectLinks from "../components/ProjectLinks.svelte";
-import Tags from "../components/Tags.svelte";
+import Tags from "../components/Tags.astro";
 const {projectData} = Astro.props;
 export const prerender = false;
 ---
 
 <PageLayout title={projectData.title} description={projectData.shortDescription} image={projectData.cover}>
     <Fragment slot="header">
-        <Tags client:load tags={projectData.tags} projectId={projectData.id}/>
+        <Tags tags={projectData.tags} projectId={projectData.id}/>
         <LocalizedDates client:only="svelte" publicationDate={projectData.publicationDate}/>
         <p hidden={projectData.published} style="font-size: small; color:red;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 10px; height: 10px;">
