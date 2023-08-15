@@ -58,7 +58,9 @@
     {:else}
     <div class="button-links">
     {#if githubUrl}
-<a href={githubUrl} target="_blank" rel="noopener noreferrer"><button><img src="/GitHub-Mark-Light-32px.png" alt="GitHub">GitHub</button></a>
+<a href={githubUrl} target="_blank" rel="noopener noreferrer">
+    <button><img src="/GitHub-Mark-Light-32px.png" alt="GitHub" class="gh-icon">GitHub</button>
+</a>
 {/if}
 {#if homepageUrl}
 <a href={homepageUrl} target="_blank" rel="noopener noreferrer"><button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -83,6 +85,9 @@
     .success {
          border: 1px solid lime;
          background-color: #00dd0099;
+    }
+    .gh-icon{
+        mix-blend-mode: exclusion;
     }
     .error {
         border: 1px solid red;

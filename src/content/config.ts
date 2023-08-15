@@ -5,7 +5,7 @@ export const collections = {
   projects: defineCollection({
     schema: ({ image }) => z.object({
       cover: image().refine((img) => img.width >= 500, {
-        message: "Cannot Determine file to upload - must be at least 500px wide",
+        message: "Project cover image must be at least 500px wide",
       }).optional(),
       title: z.string().max(120),
       publicationDate: z.date(),
